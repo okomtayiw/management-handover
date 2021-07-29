@@ -27,7 +27,7 @@
             <div class="card">
             
               <div class="card-header">
-                <h3 class="card-title"><?php echo $title;?></h3><br>
+                <h3 class="card-title"><?php echo $tower;?> unit lunas bulan &nbsp; <?php echo $title;?></h3><br>
                 <input type="text" id="nmTower" value="<?php echo $nTower;?>"  hidden>
                 <input type="text" id="nmMonth" value="<?php echo $nMonth;?>" hidden>
                 <input type="text" id="nmYear" value="<?php echo $nYear;?>" hidden>

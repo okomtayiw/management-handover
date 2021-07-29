@@ -23,46 +23,12 @@ class Home extends CI_Controller {
 		$this->session->userdata('email')])->row_array();
 		if ($data['user'] != null){
 		$data['title'] = 'Halaman Home';
-		// $data['totunit'] = $this->HomeModel->getAllDataTowerOne();
-		// $data['totunit2'] = $this->HomeModel->getAllDataTowerTwo();
-		// $data['totunit3'] = $this->HomeModel->getAllDataTowerTree();
-		// $data['totunit4'] = $this->HomeModel->getAllDataTowerFour();
-		// $data['totunit5'] = $this->HomeModel->getAllDataTowerFive();
-		// $data['totunit6'] = $this->HomeModel->getAllDataTowerSix();
-
-		// //HO
-		// $data ['totTAHO'] = $this->AlltowerModel->totDataUnitHOTA();
-		// $data ['totTBHO'] = $this->AlltowerModel->totDataUnitHOTB();
-		// $data ['totTCHO'] = $this->AlltowerModel->totDataUnitHOTC();
-		// $data ['totTDHO'] = $this->AlltowerModel->totDataUnitHOTD();
-		// $data ['totTEHO'] = $this->AlltowerModel->totDataUnitHOTE();
-		// $data ['totTFHO'] = $this->AlltowerModel->totDataUnitHOTF();
-        // //pendingho
-		// $data ['totTAPHO'] = $this->AlltowerModel->totDataUnitPHOTA();
-		// $data ['totTBPHO'] = $this->AlltowerModel->totDataUnitPHOTB();
-		// $data ['totTCPHO'] = $this->AlltowerModel->totDataUnitPHOTC();
-		// $data ['totTDPHO'] = $this->AlltowerModel->totDataUnitPHOTD();
-		// $data ['totTEPHO'] = $this->AlltowerModel->totDataUnitPHOTE();
-		// $data ['totTFPHO'] = $this->AlltowerModel->totDataUnitPHOTF();
-
-
-		// //STS
-		// $data ['totTASTS'] = $this->AlltowerModel->totDataUnitSTSTA();
-		// $data ['totTBSTS'] = $this->AlltowerModel->totDataUnitSTSTB();
-		// $data ['totTCSTS'] = $this->AlltowerModel->totDataUnitSTSTC();
-		// $data ['totTDSTS'] = $this->AlltowerModel->totDataUnitSTSTD();
-		// $data ['totTESTS'] = $this->AlltowerModel->totDataUnitSTSTE();
-		// $data ['totTFSTS'] = $this->AlltowerModel->totDataUnitSTSTF();
-
-
-		//fixedmonth 
-
-		// $data['totDataUnitfixMonth1'] = $this->AlltowerModel->totDataUnitfixMonth1();
-
-		//usersUpdate
-
-		// $data ['userupdate'] = $this->AlltowerModel->getAllDataUserUpdate();
-		
+		$data['totGracePeriodeA'] = $this->AlltowerModel->totGracePeriodeA();
+		$data['totGracePeriodeB'] = $this->AlltowerModel->totGracePeriodeB();
+		$data['totGracePeriodeC'] = $this->AlltowerModel->totGracePeriodeC();
+		$data['totGracePeriodeD'] = $this->AlltowerModel->totGracePeriodeD();
+		$data['totGracePeriodeE'] = $this->AlltowerModel->totGracePeriodeE();
+		$data['totGracePeriodeF'] = $this->AlltowerModel->totGracePeriodeF();
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/index', $data);
 		$this->load->view('templates/footer');

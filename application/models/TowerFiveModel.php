@@ -67,240 +67,77 @@ Class TowerFiveModel extends CI_Model{
       echo $id;
     }
 
-    function syncroniseData(){
 
-      $query = $this->db->query("SELECT * FROM temp_data ");
+
+
+    public function get_current_page_records_twe() 
+    {
+       
+      $query = $this->db->query("SELECT tbl_ste.*,tbl_ste.penerimaan as name_status_pembayaran FROM tbl_ste ORDER BY tbl_ste.id_ste");
       return $query->result_array();
-
-    }
-
-
-    public function get_current_page_records_twe($limit, $start) 
-    {
-       
-        $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-        LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-        LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-        LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-        ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        return $query->result_array();
-  
-  
-        if ($query->num_rows() > 0)
-          {
-              foreach ($query->result() as $row)
-              {
-                  $data[] = $row;
-              }
-              
-              return $data;
-          }
-    
-        return false;
   
       
     }
 
 
-
-    public function get_current_page_records_tweFilter($limit, $start, $status) 
-    {
-       
-        if ($status == 'HO'){
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.status = 1
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'NOHO') {
-
-        $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-        LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-        LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-        LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-        WHERE tbl_ste.status = ''
-        ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'barter') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.status_unit_barter = 'barter'
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-
-        } else if ($status == 'readyho') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.ready_ho = 'Sudah siap serah terima' AND tbl_ste.status = '' AND tbl_ste.status_unit_barter != 'barter'
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        }  else if ($status == 'barterho') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.status_unit_barter = 'barter' AND tbl_ste.status = 1
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        }  else if ($status == 'barterbelumho') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.status_unit_barter = 'barter' AND tbl_ste.status = ''
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'undangan-satu') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.undangan != '0000-00-00' AND tbl_ste.status != 1  AND tbl_ste.ready_ho !=''
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'undangan-dua') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.undangan2 != '0000-00-00' AND tbl_ste.status != 1  AND tbl_ste.ready_ho !=''
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'undangan-tiga') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.undangan3 != '0000-00-00' AND tbl_ste.status != 1  AND tbl_ste.ready_ho !=''
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'sto') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.tgl_sts != '0000-00-00' AND tbl_ste.status != 1  
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'openqc') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.date_openQC  != '0000-00-00' AND tbl_ste.status != 1  
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'belumopenqc') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.date_openQC  = '0000-00-00' AND tbl_ste.status != 1  
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'closeopenqc') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.date_closeQC  != '0000-00-00' AND tbl_ste.status != 1  
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        } else if ($status == 'loloscollection') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.status = '' AND tbl_ste.penerimaan BETWEEN '5' AND '100'
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        }  else if ($status == 'tidakloloscollection') {
-
-          $query = $this->db->query("SELECT tbl_ste.*,tbl_defect.name_defect as nameDefect, status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-          LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-          LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-          LEFT OUTER JOIN tbl_defect ON tbl_ste.id_defect = tbl_defect.id_defect
-          WHERE tbl_ste.ready_ho != '' AND tbl_ste.status = ''  AND tbl_ste.penerimaan BETWEEN '0' AND '4' 
-          ORDER BY tbl_ste.id_ste ASC LIMIT $start, $limit");
-        }
-
-
-
-       
-        
-        return $query->result_array();
+    public function syncroniseData() {
+  
+      $query = $this->db->query("SELECT * FROM master_data_denda WHERE substring(master_data_denda.unit, 1,3) = 'TRE' AND penerimaan = '100%'");
+      return $query->result_array(); 
+    } 
   
   
-        if ($query->num_rows() > 0)
-          {
-              foreach ($query->result() as $row)
-              {
-                  $data[] = $row;
-              }
-              
-              return $data;
-          }
-    
-        return false;
+    public function updateSyncroniseTowerE($nameUnit,$penerimaan){
   
+  
+      $unit = $this->cekUnit($nameUnit);
       
-    }
-
-
-    function totDataTowerFiveFilter($filter){
-      if ($filter == 'HO') {
-      $query = $this->db->where('status', 1)->get('tbl_ste');
-      } else if ($filter == 'NOHO') {
-        $query = $this->db->where('status', '')->get('tbl_ste');
-      } else if ($filter == 'barter') {
-        $query = $this->db->where('status_unit_barter', 'barter')->get('tbl_ste');
-      } else if ($filter == 'readyho') {
-        $where  = "ready_ho = 'Sudah siap serah terima' AND status = '' AND status_unit_barter != 'barter'";
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'barterho') {
-        $where  = "status_unit_barter = 'barter' AND status = 1";
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'barterbelumho') {
-        $where  = "status_unit_barter = 'barter' AND status = ''";
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'undangan-satu') {
-        $where  = "undangan != '0000-00-00' AND status != 1  AND ready_ho !=''";
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'undangan-dua') {
-        $where  = "undangan2 != '0000-00-00' AND status != 1  AND ready_ho !=''";
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'undangan-tiga') {
-        $where  = "undangan3 != '0000-00-00' AND status != 1  AND ready_ho !=''";
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'sto') {
-        $where  = "tgl_sts != '0000-00-00' AND status != 1";
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'openqc') {
-        $where  = "date_openQC  != '0000-00-00' AND tbl_ste.status != 1";  
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'belumopenqc') {
-        $where  = "date_openQC  = '0000-00-00' AND tbl_ste.status != 1";  
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'closeopenqc') {
-        $where  = "date_closeQC  != '0000-00-00' AND tbl_ste.status != 1";  
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'loloscollection') {
-        $where  = "status = '' AND penerimaan BETWEEN '5' AND '100'";  
-        $query = $this->db->where($where)->get('tbl_ste');
-      } else if ($filter == 'tidakloloscollection') {
-        $where  = "ready_ho != '' AND status = ''  AND penerimaan BETWEEN '0' AND '4' ";  
-        $query = $this->db->where($where)->get('tbl_ste');
+      if($unit != null){
+        $idStatusPembayaran = 1;
+  
+        $this->db->set('id_status_pembayaran', $idStatusPembayaran, FALSE);
+        $this->db->where('lantai', $nameUnit);
+        $this->db->update('tbl_ste');
+      } else {
+        $data = array(
+          'unit'=> $nameUnit,
+          'penerimaan' =>$penerimaan
+        );
+        $this->db->insert('tbl_data_unit', $data);
       }
-      return $query->num_rows();
+            
     }
+  
+  
+    public function cekUnit($unit){
+      $query = $this->db->query("SELECT lantai as nounit FROM tbl_ste WHERE lantai = '$unit'");
+      return $query->result_array();
+     }
 
 
-   
+     public function dataTowerE(){
+      $query = $this->db->query("SELECT * FROM temp_data WHERE SUBSTRING(`nameUnit`,1,3) = 'TRE'");
+      return $query->result_array();
+    } 
+  
+    public function inserData($unit,$owner,$dateTransaction,$dateSerahTerima,$dateGracePeriode,$penerimaan,$denda,$tunggakan){
+      $data = array(
+  
+        'lantai' => $unit,
+        'pemilik' => $owner,
+        'tgl_transaksi' => $dateTransaction,
+        'tgl_ho_seharusnya' => $dateSerahTerima,
+        'grace_periode' => $dateGracePeriode,
+        'date_update' => date('Y-m-d'),
+        'penerimaan' => $penerimaan,
+        'denda' => $denda,
+        'tunggakan' => $tunggakan
+        
+      );
+  
+      $this->db->insert('tbl_ste', $data);
+    }   
+
 
 
 }

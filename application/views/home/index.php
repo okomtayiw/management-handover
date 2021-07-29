@@ -1,77 +1,52 @@
-<?php 
+<?php
+$resultSetA = Array();
+if($totGracePeriodeA != null){
+  foreach($totGracePeriodeA as $result) {
+     $resultSetA[] = $result['tot'];
+  }
+}
 
-$totunit = 0;
-$totunit2 = 0;
-$totunit3 = 0;
-$totunit4 = 0;
-$totunit5 = 0;
-$totunit6 = 0;
+$resultSetB = Array();
+if($totGracePeriodeB != null){
+  foreach($totGracePeriodeB as $result) {
+     $resultSetB[] = $result['tot'];
+  }
+}
 
-
-
-// $sampleArray = array( 
-//   0 => "$totunit",  
-//   1 => "$totunit2",  
-//   2 => "$totunit3",
-//   3 => "$totunit4",
-//   4 => "$totunit5",
-//   5 => "$totunit6"  
-// ) ;
-// $totAllUnitAlltower = $totunit + $totunit2 + $totunit3 + $totunit4 + $totunit5 + $totunit6;
-// ?>
-
-// <?php
+$resultSetC = Array();
+if($totGracePeriodeC != null){
+  foreach($totGracePeriodeC as $result) {
+     $resultSetC[] = $result['tot'];
+  }
+}
 
 
-// $totpersen1 = round($totunit/$totAllUnitAlltower*100, 1);
-// $totpersen2 = round($totunit2/$totAllUnitAlltower*100, 1);
-// $totpersen3 = round($totunit3/$totAllUnitAlltower*100, 1);
-// $totpersen4 = round($totunit4/$totAllUnitAlltower*100, 1);
-// $totpersen5 = round($totunit5/$totAllUnitAlltower*100, 1);
-// $totpersen6 = round($totunit6/$totAllUnitAlltower*100, 1);
+$resultSetD = Array();
+if($totGracePeriodeD != null){
+  foreach($totGracePeriodeD as $result) {
+     $resultSetD[] = $result['tot'];
+  }
+}
 
-// $kod = '%';
-// $sampleArray2 = array( 
-//   0 => "$totpersen1$kod",  
-//   1 => "$totpersen2$kod",  
-//   2 => "$totpersen3$kod",
-//   3 => "$totpersen4$kod",
-//   4 => "$totpersen5$kod",
-//   5 => "$totpersen6$kod"
-// );
+$resultSetE = Array();
+if($totGracePeriodeE != null){
+  foreach($totGracePeriodeE as $result) {
+     $resultSetE[] = $result['tot'];
+  }
+}
 
-// $arrayHO = array(
 
-//   0 => "$totTAHO",
-//   1 => "$totTBHO",
-//   2 => "$totTCHO",
-//   3 => "$totTDHO",
-//   4 => "$totTEHO",
-//   5 => "$totTFHO"
-// );
+$resultSetF = Array();
+if($totGracePeriodeF != null){
+  foreach($totGracePeriodeF as $result) {
+     $resultSetF[] = $result['tot'];
+  }
+}
 
-// $arrayPHO = array(
 
-//   0 => "$totTAPHO",
-//   1 => "$totTBPHO",
-//   2 => "$totTCPHO",
-//   3 => "$totTDPHO",
-//   4 => "$totTEPHO",
-//   5 => "$totTFPHO"
-// );
+?>
 
-// $arraySTS = array(
-
-//   0 => "$totTASTS",
-//   1 => "$totTBSTS",
-//   2 => "$totTCSTS",
-//   3 => "$totTDSTS",
-//   4 => "$totTESTS",
-//   5 => "$totTFSTS"
-// )
-
-?> 
- <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -95,244 +70,63 @@ $totunit6 = 0;
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header border-0">
-                <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Online Store Visitors</h3>
-                  <a href="javascript:void(0);">View Report</a>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">820</span>
-                    <span>Visitors Over Time</span>
-                  </p>
-                  <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 12.5%
-                    </span>
-                    <span class="text-muted">Since last week</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-
-                <div class="position-relative mb-4">
-                  <canvas id="visitors-chart" height="200"></canvas>
-                </div>
-
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This Week
-                  </span>
-
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last Week
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- /.card -->
-
-            <div class="card">
-              <div class="card-header border-0">
-                <h3 class="card-title">Products</h3>
-                <div class="card-tools">
-                  <a href="#" class="btn btn-tool btn-sm">
-                    <i class="fas fa-download"></i>
-                  </a>
-                  <a href="#" class="btn btn-tool btn-sm">
-                    <i class="fas fa-bars"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="card-body table-responsive p-0">
-                <table class="table table-striped table-valign-middle">
-                  <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Sales</th>
-                    <th>More</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Tower A
-                    </td>
-                    <td><?php echo $totunit;?></td>
-                    <td>
-                      <small class="text-success mr-1">
-                        <i class="fas fa-arrow-up"></i>
-                        12%
-                      </small>
-                      12,000 Sold
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Tower B
-                    </td>
-                    <td><?php echo $totunit2;?></td>
-                    <td>
-                      <small class="text-warning mr-1">
-                        <i class="fas fa-arrow-down"></i>
-                        0.5%
-                      </small>
-                      123,234 Sold
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Tower C
-                    </td>
-                    <td><?php echo $totunit3;?></td>
-                    <td>
-                      <small class="text-danger mr-1">
-                        <i class="fas fa-arrow-down"></i>
-                        3%
-                      </small>
-                      198 Sold
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                      Tower D
-                      <span class="badge bg-danger">NEW</span>
-                    </td>
-                    <td><?php echo $totunit4;?></td>
-                    <td>
-                      <small class="text-success mr-1">
-                        <i class="fas fa-arrow-up"></i>
-                        63%
-                      </small>
-                      87 Sold
-                    </td>
-                    <td>
-                      <a href="#" class="text-muted">
-                        <i class="fas fa-search"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <!-- /.card -->
-          </div>
           <!-- /.col-md-6 -->
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Sales</h3>
+                  <h3 class="card-title">Grace Periode</h3>
                   <a href="javascript:void(0);">View Report</a>
                 </div>
               </div>
               <div class="card-body">
                 <div class="d-flex">
                   <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">$18,230.00</span>
-                    <span>Sales Over Time</span>
+                    <span class="text-bold text-lg"></span>
+                    <span></span>
                   </p>
-                  <p class="ml-auto d-flex flex-column text-right">
+                  <!-- <p class="ml-auto d-flex flex-column text-right">
                     <span class="text-success">
-                      <i class="fas fa-arrow-up"></i> 33.1%
+                      <i class="fas fa-arrow-up"></i> 50.1%
                     </span>
                     <span class="text-muted">Since last month</span>
-                  </p>
+                  </p> -->
                 </div>
                 <!-- /.d-flex -->
 
                 <div class="position-relative mb-4">
-                  <canvas id="sales-chart" height="200"></canvas>
+                  <canvas id="sales-chart" height="500"></canvas>
                 </div>
 
-                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This year
+                <div class="d-flex flex-row justify-content-center">
+                  <span class="mr-4">
+                    <i class="fas fa-square text-danger"></i> TR A
                   </span>
 
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last year
+                  <span class="mr-4">
+                    <i class="fas fa-square text-warning"></i> TR B
+                  </span>
+
+                  <span class="mr-4">
+                    <i class="fas fa-square text-success"></i> TR C
+                  </span>
+
+                  <span class="mr-4">
+                    <i class="fas fa-square text-primary"></i> TR D
+                  </span>
+
+                  <span class="mr-4">
+                    <i class="fas fa-square text-info"></i> TR E
+                  </span>
+
+                  <span class="mr-4">
+                    <i class="fas fa-square text-secondary"></i> TR F
                   </span>
                 </div>
               </div>
             </div>
             <!-- /.card -->
 
-            <div class="card">
-              <div class="card-header border-0">
-                <h3 class="card-title">Online Store Overview</h3>
-                <div class="card-tools">
-                  <a href="#" class="btn btn-sm btn-tool">
-                    <i class="fas fa-download"></i>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-tool">
-                    <i class="fas fa-bars"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                  <p class="text-success text-xl">
-                    <i class="ion ion-ios-refresh-empty"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-success"></i> 12%
-                    </span>
-                    <span class="text-muted">CONVERSION RATE</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                  <p class="text-warning text-xl">
-                    <i class="ion ion-ios-cart-outline"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-warning"></i> 0.8%
-                    </span>
-                    <span class="text-muted">SALES RATE</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-                <div class="d-flex justify-content-between align-items-center mb-0">
-                  <p class="text-danger text-xl">
-                    <i class="ion ion-ios-people-outline"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-down text-danger"></i> 1%
-                    </span>
-                    <span class="text-muted">REGISTRATION RATE</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-              </div>
-            </div>
           </div>
           <!-- /.col-md-6 -->
         </div>
@@ -344,4 +138,103 @@ $totunit6 = 0;
   </div>
   <!-- /.content-wrapper -->
 
+ <script text="javascript">
+     $(document).ready(function(){
 
+      var ticksStyle = {
+          fontColor: '#495057',
+          fontStyle: 'bold'
+        }
+
+        var mode = 'index'
+        var intersect = true
+        var $salesChart = $('#sales-chart')
+        // eslint-disable-next-line no-unused-vars
+        var salesChart = new Chart($salesChart, {
+          type: 'bar',
+          data: {
+            labels: ['Sep-21', 'Okt-21', 'Nov-21', 'Des-21'],
+            datasets: [
+              {
+                backgroundColor: '#F63005',
+                borderColor: '#007bff',
+                data: <?php echo json_encode($resultSetA);?>
+              },
+              {
+                backgroundColor: '#F5EA0A',
+                borderColor: '#ced4da',
+                data: <?php echo json_encode($resultSetB);?>
+              },
+              {
+                backgroundColor: '#03CC11',
+                borderColor: '#ced4da',
+                data: <?php echo json_encode($resultSetC);?>
+              },
+              {
+                backgroundColor: '#0E55E6',
+                borderColor: '#ced4da',
+                data: <?php echo json_encode($resultSetD);?>
+              },
+              {
+                backgroundColor: '#0798B3',
+                borderColor: '#ced4da',
+                data: <?php echo json_encode($resultSetE);?>
+              },
+
+              {
+                backgroundColor: '#5C6D70',
+                borderColor: '#ced4da',
+                data: <?php echo json_encode($resultSetF);?>
+              }
+              
+            ]
+          },
+          options: {
+            maintainAspectRatio: false,
+            tooltips: {
+              mode: mode,
+              intersect: intersect
+            },
+            hover: {
+              mode: mode,
+              intersect: intersect
+            },
+            legend: {
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                // display: false,
+                gridLines: {
+                  display: true,
+                  lineWidth: '4px',
+                  color: 'rgba(0, 0, 0, .2)',
+                  zeroLineColor: 'transparent'
+                },
+                ticks: $.extend({
+                  beginAtZero: true,
+
+                  // Include a dollar sign in the ticks
+                  callback: function (value) {
+                    if (value >= 3000) {
+                      value /= 100
+                      value += ' unit'
+                    }
+
+                    return  value
+                  }
+                }, ticksStyle)
+              }],
+              xAxes: [{
+                display: true,
+                gridLines: {
+                  display: false
+                },
+                ticks: ticksStyle
+              }]
+            }
+          }
+        })
+     });
+
+ </script>

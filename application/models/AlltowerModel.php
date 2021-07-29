@@ -6,6 +6,15 @@ Class AlltowerModel extends CI_Model{
   public function __construct()
   {
     $this->load->database();
+    $models = array(
+        'TowerOneModel' => 'TowerOneModel',
+        'TowerTwoModel' => 'TowerTwoModel',
+        'TowerTreeModel' => 'TowerTreeModel',
+        'TowerFourModel' => 'TowerFourModel',
+        'TowerFiveModel' => 'TowerFivwModel',
+        'TowerSixModel' => 'TowerSixModel'
+    );
+    $this->load->model($models);
   }
 
   /* address all tower view --> */
@@ -61,7 +70,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 05");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 05 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -90,7 +99,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 06");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 06 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
 
@@ -117,7 +126,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 07");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 07 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -145,7 +154,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 08");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 08 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -174,7 +183,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 09");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 09 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
 
@@ -202,7 +211,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 10");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 10 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -230,7 +239,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 11");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 11 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
 
@@ -259,7 +268,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 12");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 12 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
     
@@ -285,7 +294,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 13");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 13 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -314,7 +323,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 15");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 15 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -344,7 +353,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 16");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 16 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -372,7 +381,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 17");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 17 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -398,7 +407,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 18");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 18 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
 
@@ -425,7 +434,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 19");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 19 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
 
@@ -453,7 +462,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 20");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 20 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -483,7 +492,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 21");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 21 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
 
@@ -511,7 +520,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 22");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 22 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
 
@@ -539,7 +548,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 23");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 23 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
 
@@ -566,7 +575,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 24");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 24 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -594,7 +603,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 25");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 25 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -621,7 +630,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 26");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 26 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
     
@@ -648,7 +657,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 27");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 27 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
     
@@ -675,7 +684,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 28");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 28 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -704,7 +713,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 29");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 29 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -733,7 +742,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 30");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 30 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -759,7 +768,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 31");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 31 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
 
@@ -787,7 +796,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 32");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 32 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
 
@@ -813,7 +822,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 33");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 33 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
 
@@ -839,7 +848,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 34");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 34 AND id_status_pembayaran = 1");
       return $query->result_array();  
     }
     
@@ -865,7 +874,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 35");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 35 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
     
@@ -892,7 +901,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 36");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 36 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -920,7 +929,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 37");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 37 AND id_status_pembayaran = 1");
       return $query->result_array();  
   }
     
@@ -947,7 +956,7 @@ Class AlltowerModel extends CI_Model{
     }
 
       $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 38");
+      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 38 AND id_status_pembayaran = 1");
       return $query->result_array();  
 
   }
@@ -959,87 +968,220 @@ Class AlltowerModel extends CI_Model{
 
   public function allDataUnitLevel39($month, $year,$tower){
 
-    if($month != null AND $year != null AND $tower != null){
+      if($month != null AND $year != null AND $tower != null){
 
-    if($tower == 1) {
-      $tbl = 'tbl_cta';
-    } else if ($tower == 2){
-      $tbl = 'tbl_ctb';
-    } else if ($tower == 3){
-      $tbl = 'tbl_stc';
-    } else if ($tower == 4){
-      $tbl = 'tbl_std';
-    } else if ($tower == 5){
-      $tbl = 'tbl_ste';
-    } else if ($tower == 6){
-      $tbl = 'tbl_stf';
-    }
-
-      $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
-      WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 39");
-      return $query->result_array();  
-  }
-    
-
-  }
-
-  public function allDataTowerList($month, $year,$level,$tower){
-
-
-    
-
-      // $query = $this->db->query("SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '1' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_cta`
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '2' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit   FROM `tbl_ctb`
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '3' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_stc`
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '4' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_std`
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '5' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_ste`
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '6' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_stf`");
-     
-   if ($month != null AND $year != null AND $level != null AND $tower != null) {
-
-      // $query = $this->db->query("SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '1' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_cta`
-      // WHERE  MONTH(`grace_periode`) = '$month' AND YEAR(`grace_periode`) = '$year' AND SUBSTRING(`lantai`,5,2) = $level AND SUBSTRING(`lantai`,1,3) = 'TRA'
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '2' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_ctb`
-      // WHERE  MONTH(`grace_periode`) = '$month' AND YEAR(`grace_periode`) = '$year' AND SUBSTRING(`lantai`,5,2) = $level AND SUBSTRING(`lantai`,1,3) = 'TRB'
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '3' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_stc`
-      // WHERE  MONTH(`grace_periode`) = '$month' AND YEAR(`grace_periode`) = '$year' AND SUBSTRING(`lantai`,5,2) = $level AND SUBSTRING(`lantai`,1,3) = 'TRC'
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '4' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_std`
-      // WHERE  MONTH(`grace_periode`) = '$month' AND YEAR(`grace_periode`) = '$year' AND SUBSTRING(`lantai`,5,2) = $level AND SUBSTRING(`lantai`,1,3) = 'TRD'
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '5' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_ste`
-      // WHERE  MONTH(`grace_periode`) = '$month' AND YEAR(`grace_periode`) = '$year' AND SUBSTRING(`lantai`,5,2) = $level AND SUBSTRING(`lantai`,1,3) = 'TRE'
-      // UNION
-      // SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '6' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_stf`
-      // WHERE  MONTH(`grace_periode`) = '$month' AND YEAR(`grace_periode`) = '$year' AND SUBSTRING(`lantai`,5,2) = $level AND SUBSTRING(`lantai`,1,3) = 'TRF' ");
       if($tower == 1) {
-        $query = $this->db->query("SELECT `lantai` FROM `tbl_cta`
-        WHERE  MONTH(`grace_periode`) = '$month' AND YEAR(`grace_periode`) = '$year' AND SUBSTRING(`lantai`,5,2) = $level");
-        return $query->result_array();  
-
-      } else if ($tower == 2 ) {
-        $query = $this->db->query("SELECT `lantai`,`pemilik`,DATE_FORMAT(`tgl_transaksi`,'%d/%m/%Y') as tgl_transaksi,DATE_FORMAT(`tgl_ho_seharusnya`,'%d/%m/%Y') as tgl_ho_seharusnya,DATE_FORMAT(`grace_periode`,'%d/%m/%Y') as grace_periode, '1' as tower, MONTH(`grace_periode`) as month_grace_periode, YEAR(`grace_periode`) as year_grace_periode, SUBSTRING(`lantai`,5,2) as lantai_unit  FROM `tbl_ctb`
-        WHERE  MONTH(`grace_periode`) = '$month' AND YEAR(`grace_periode`) = '$year' AND SUBSTRING(`lantai`,5,2) = $level");
-        return $query->result_array();  
+        $tbl = 'tbl_cta';
+      } else if ($tower == 2){
+        $tbl = 'tbl_ctb';
+      } else if ($tower == 3){
+        $tbl = 'tbl_stc';
+      } else if ($tower == 4){
+        $tbl = 'tbl_std';
+      } else if ($tower == 5){
+        $tbl = 'tbl_ste';
+      } else if ($tower == 6){
+        $tbl = 'tbl_stf';
       }
 
-      
+        $query = $this->db->query("SELECT GROUP_CONCAT(`lantai`) as lantai, count(`lantai`) as sumData FROM $tbl
+        WHERE  MONTH(`grace_periode`) = $month AND YEAR(`grace_periode`) = $year AND SUBSTRING(`lantai`,5,2) = 39 AND id_status_pembayaran = 1");
+        return $query->result_array();  
     }
-
-
-  
-
     
 
   }
 
+  public function allDataUnitFromMarketing(){
+
+    $query = $this->db->query("SELECT * FROM master_data_marketing WHERE tower = 6");
+    return $query->result_array();  
+
+  }
+
+
+  public function inputDataTower($unit,$owner,$dateTransaction,$dateSerahTerima,$dateGracePeriode){
+    $data = array(
+
+      'lantai' => $unit,
+      'pemilik' => $owner,
+      'tgl_transaksi' => $dateTransaction,
+      'tgl_ho_seharusnya' => $dateSerahTerima,
+      'grace_periode' => $dateGracePeriode,
+      'date_update' => date('Y-m-d')
+      
+    );
+
+
+    $unit = $this->TowerSixModel->cekUnit($unit);
+    if($unit == null ) {
+      $this->db->insert('tbl_stf', $data);
+    } 
+ 
+  }
+
+
+  public function totGracePeriodeA(){
+
+    $query = $this->db->query("SELECT COUNT(tbl_cta.id_cta) as tot  FROM tbl_cta
+    WHERE MONTH(tbl_cta.grace_periode) = 9 AND YEAR(tbl_cta.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_cta.id_cta) as tot  FROM tbl_cta
+    WHERE MONTH(tbl_cta.grace_periode) = 10 AND YEAR(tbl_cta.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_cta.id_cta) as tot  FROM tbl_cta
+    WHERE MONTH(tbl_cta.grace_periode) = 11 AND YEAR(tbl_cta.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_cta.id_cta) as tot  FROM tbl_cta
+    WHERE MONTH(tbl_cta.grace_periode) = 12 AND YEAR(tbl_cta.grace_periode) = 2021");
+    return $query->result_array();  
+
+  }
+
+  public function totGracePeriodeB(){
+
+    $query = $this->db->query("SELECT COUNT(tbl_ctb.id_ctb) as tot  FROM tbl_ctb
+    WHERE MONTH(tbl_ctb.grace_periode) = 9 AND YEAR(tbl_ctb.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_ctb.id_ctb) as tot  FROM tbl_ctb
+    WHERE MONTH(tbl_ctb.grace_periode) = 10 AND YEAR(tbl_ctb.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_ctb.id_ctb) as tot  FROM tbl_ctb
+    WHERE MONTH(tbl_ctb.grace_periode) = 11 AND YEAR(tbl_ctb.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_ctb.id_ctb) as tot  FROM tbl_ctb
+    WHERE MONTH(tbl_ctb.grace_periode) = 12 AND YEAR(tbl_ctb.grace_periode) = 2021");
+    return $query->result_array();  
+
+  }
+
+
+  public function totGracePeriodeC(){
+
+    $query = $this->db->query("SELECT COUNT(tbl_stc.id_stc) as tot  FROM tbl_stc
+    WHERE MONTH(tbl_stc.grace_periode) = 9 AND YEAR(tbl_stc.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_stc.id_stc) as tot  FROM tbl_stc
+    WHERE MONTH(tbl_stc.grace_periode) = 10 AND YEAR(tbl_stc.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_stc.id_stc) as tot  FROM tbl_stc
+    WHERE MONTH(tbl_stc.grace_periode) = 11 AND YEAR(tbl_stc.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_stc.id_stc) as tot  FROM tbl_stc
+    WHERE MONTH(tbl_stc.grace_periode) = 12 AND YEAR(tbl_stc.grace_periode) = 2021");
+    return $query->result_array();  
+
+  }
+
+  public function totGracePeriodeD(){
+
+    $query = $this->db->query("SELECT COUNT(tbl_std.id_std) as tot  FROM tbl_std
+    WHERE MONTH(tbl_std.grace_periode) = 9 AND YEAR(tbl_std.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_std.id_std) as tot  FROM tbl_std
+    WHERE MONTH(tbl_std.grace_periode) = 10 AND YEAR(tbl_std.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_std.id_std) as tot  FROM tbl_std
+    WHERE MONTH(tbl_std.grace_periode) = 11 AND YEAR(tbl_std.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_std.id_std) as tot  FROM tbl_std
+    WHERE MONTH(tbl_std.grace_periode) = 12 AND YEAR(tbl_std.grace_periode) = 2021");
+    return $query->result_array();  
+
+  }
+
+  public function totGracePeriodeE(){
+
+    $query = $this->db->query("SELECT COUNT(tbl_ste.id_ste) as tot  FROM tbl_ste
+    WHERE MONTH(tbl_ste.grace_periode) = 9 AND YEAR(tbl_ste.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_ste.id_ste) as tot  FROM tbl_ste
+    WHERE MONTH(tbl_ste.grace_periode) = 10 AND YEAR(tbl_ste.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_ste.id_ste) as tot  FROM tbl_ste
+    WHERE MONTH(tbl_ste.grace_periode) = 11 AND YEAR(tbl_ste.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_ste.id_ste) as tot  FROM tbl_ste
+    WHERE MONTH(tbl_ste.grace_periode) = 12 AND YEAR(tbl_ste.grace_periode) = 2021");
+    return $query->result_array();  
+
+  }
+
+  public function totGracePeriodeF(){
+
+    $query = $this->db->query("SELECT COUNT(tbl_stf.id_stf) as tot  FROM tbl_stf
+    WHERE MONTH(tbl_stf.grace_periode) = 9 AND YEAR(tbl_stf.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_stf.id_stf) as tot  FROM tbl_stf
+    WHERE MONTH(tbl_stf.grace_periode) = 10 AND YEAR(tbl_stf.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_stf.id_stf) as tot  FROM tbl_stf
+    WHERE MONTH(tbl_stf.grace_periode) = 11 AND YEAR(tbl_stf.grace_periode) = 2021
+    UNION
+    SELECT COUNT(tbl_stf.id_stf) as tot  FROM tbl_stf
+    WHERE MONTH(tbl_stf.grace_periode) = 12 AND YEAR(tbl_stf.grace_periode) = 2021");
+    return $query->result_array();  
+
+  }
+
+
+  public function allDataUnitFromPayment(){
+
+    $query = $this->db->query("SELECT * FROM master_data_denda");
+    return $query->result_array();  
+
+  }
+
+  public function inputDataUnitDifferent($unit,$penerimaan){
+    $data = array(
+
+      'unit' => $unit,
+      'penerimaan' => $penerimaan
+      
+    );
+      
+      $unit = $this->AlltowerModel->cekUnit($unit);
+      if($unit == null ) {
+        $this->db->insert('tbl_data_unit', $data);
+      } 
+ 
+  }
+
+
+  public function cekUnit($unit){
+    $query = $this->db->query("SELECT unit as nounit FROM master_data_marketing WHERE unit = '$unit'");
+    return $query->result_array();
+   }
+
+
+
+  public function allDataUnitFromPaymentMonth(){
+
+    $query = $this->db->query("SELECT * FROM master_data_denda WHERE penerimaan = 100 AND SUBSTRING(unit,1,3) = 'TRF'");
+    return $query->result_array();  
+
+  }
+
+
+  public function inputDataUnitDifferentPenerimaan($unit){
+      $data = array(
+        'unit' => $unit    
+      );
+      $penerimaan = $this->AlltowerModel->cekUnitPenerimaan($unit);
+      if($penerimaan != null) {
+        foreach ($penerimaan as $row){
+          if($row['penerimaan'] < 100 ) {
+            $this->db->insert('tbl_data_unit', $data);
+          } 
+        }
+      }
+  }
+
+
+  public function cekUnitPenerimaan($unit){
+    $query = $this->db->query("SELECT penerimaan as penerimaan FROM master_data_dendamei2021 where unit = '$unit'");
+    return $query->result_array();
+   }
 
 
 

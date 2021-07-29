@@ -27,6 +27,10 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Data <?php echo $title;?></h3><br>
+                <?php if ($towerone == null){ ?>
+                <a class="btn btn-primary" href="<?php echo base_url('syncroniseData/insertDataTowerA');?>" role="button">Insert Data</a>
+                </button>
+                <?php } ?>
                 <p> <?php echo $this->session->flashdata('messageupdate') ;?></p>
               </div>
               <!-- /.card-header -->
@@ -40,6 +44,7 @@
                     <th>Tgl. Transaksi</th>
                     <th>Tgl. Undangan</th>
                     <th>Grace periode</th>
+                    <th>Status Pembayaran</th>
                     <th colspan="1">Action</th>
                   </tr>
                   </thead>
@@ -55,6 +60,7 @@
                     <td><?php echo $row['tgl_transaksi']; ?>  </td>
                     <td><?php echo $row['tgl_ho_seharusnya']; ?>  </td>
                     <td><?php echo $row['grace_periode']; ?>  </td>
+                    <td><?php echo $row['name_status_pembayaran'];?></td>
                     <td><button type="button" rel="tooltip" title="Edit <?php echo $row['lantai']; ?>" class="btn btn-info btn-simple btn-xs" >
                     <a href="<?php echo base_url('towerOne/updatetowerone/'.$row['id_cta']);?>"><i class="fa fa-edit"></i></a>
                     </button>

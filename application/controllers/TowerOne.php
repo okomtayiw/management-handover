@@ -228,8 +228,6 @@ class TowerOne extends CI_Controller {
         $this->AlltowerModel->saveAddDataAddress($nmAddress,$noTelp,$nmUnit);
 
        }
-
-
        public function deleteAddress(){
          $idAddres = $this->input->post('id');
          $this->AlltowerModel->deleteDataAddress($idAddres);

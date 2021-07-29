@@ -15,6 +15,7 @@ class ListAllData extends CI_Controller {
 		$year = $this->input->post('nameYear');
 		// $level = $this->input->post('nameLevel');
 		$tower = $this->input->post('nameTower');
+		
 
 		// $month = 10;
 		// $year = 2021;
@@ -22,7 +23,8 @@ class ListAllData extends CI_Controller {
        
 		
         if ($data['user'] != null){
-        $data ['title'] = 'Data All Unit';
+        $data ['title'] = $this->getTowerString($tower). ' ' .$this->getMonth($month). ' ' . $year;
+		$data ['tower'] = $this->getTowerString($tower);
 	    // $data['listDataUnitAllTower'] = $this->AlltowerModel->allDataTowerList($month,$year,$level,$tower);	
 		$data['listDataUnitLevel5'] = $this->AlltowerModel->allDataUnitLevel5($month,$year,$tower);	
 		$data['listDataUnitLevel6'] = $this->AlltowerModel->allDataUnitLevel6($month,$year,$tower);	
@@ -101,6 +103,28 @@ class ListAllData extends CI_Controller {
 				Break;
 			}
 		return $month;
+	}
+
+
+	private function getTowerString($tower){
+
+		Switch ($tower){
+			case 1 : $tower="Tower A";
+				Break;
+			case 2 : $tower="Tower B";
+				Break;
+			case 3 : $tower="Tower C";
+				Break;
+			case 4 : $tower="Tower D";
+				Break;
+			case 5 : $tower="Tower E";
+				Break;
+			case 6 : $tower="Tower F";
+				Break;
+		}
+
+		return $tower;
+
 	}
 
 

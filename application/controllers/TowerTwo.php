@@ -55,7 +55,7 @@ class TowerTwo extends CI_Controller {
              }
         $data['back'] = $referer;   
         $data ['title'] = 'Halaman Data Tower B';
-        $data ['towertwo'] = $this->TowerTwoModel->getAllDataTowerTwoUpdate($idTowerTwo);
+        $data ['towertwo'] = $this->TowerTwoModel->getDataTowerTwoUpdate($idTowerTwo);
         $data ['identitas'] = $this->TowerTwoModel->gatDataIdentitasAddress($idTowerTwo); 
         $this->load->view('templates/header', $data);
         $this->load->view('towertwo/vupdatetowertwo', $data);

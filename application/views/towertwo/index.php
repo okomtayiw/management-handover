@@ -6,11 +6,16 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1><?php echo $title;?></h1>
+            <?php if ($towertwo == null){ ?>
+                <a class="btn btn-primary" href="<?php echo base_url('syncroniseData/insertDataTowerB');?>" role="button">Insert Data</a>
+                </button>
+            <?php } ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><?php echo $title;?></li>
+              
             </ol>
           </div>
         </div>
@@ -40,6 +45,7 @@
                     <th>Tgl. Transaksi</th>
                     <th>Tgl. Undangan</th>
                     <th>Grace periode</th>
+                    <th>Status Pembayaran</th>
                     <th colspan="1">Action</th>
                   </tr>
                   </thead>
@@ -55,6 +61,7 @@
                     <td><?php echo $row['tgl_transaksi']; ?>  </td>
                     <td><?php echo $row['tgl_ho_seharusnya']; ?>  </td>
                     <td><?php echo $row['grace_periode']; ?>  </td>
+                    <td><?php echo $row['name_status_pembayaran'];?></td>
                     <td><button type="button" rel="tooltip" title="Edit <?php echo $row['lantai']; ?>" class="btn btn-info btn-simple btn-xs" >
                     <a href="<?php echo base_url('TowerTwo/updateTowerTwo/'.$row['id_ctb']);?>"><i class="fa fa-edit"></i></a>
                     </button>

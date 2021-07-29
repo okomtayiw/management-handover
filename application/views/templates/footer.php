@@ -52,8 +52,9 @@
       "lengthChange": true, 
       "autoWidth": true,
       "paging": true,
+      "sScrollX": '100%',
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    }).buttons().container().appendTo('#viewDataTable_wrapper .col-md-6:eq(0)');
 
       //Date picker
     $('#datepicker').datepicker({

@@ -23,6 +23,7 @@ class HandOver extends CI_Controller {
         $this->session->userdata('email')])->row_array();
         if ($data['user'] != null){
         $data ['transaction'] = $this->TransactionModel->getAllDataTransaction();  
+        $data['title'] = "Halaman serah terima";
         $this->load->view('templates/header', $data);
         $this->load->view('HandOver/index', $data);
         $this->load->view('templates/footer');
@@ -43,6 +44,7 @@ class HandOver extends CI_Controller {
         $data['user'] = $this->db->get_where('tb_users', ['email' =>
         $this->session->userdata('email')])->row_array();
         if ($data['user'] != null){
+        $data['title'] = "Halaman serah terima";    
         $data ['transaction'] = $this->TransactionModel->getDataTransaction($idTransaction);  
         $data ['towera'] = $this->TransactionModel->getAllDataUnitA();
         $data ['towerb'] = $this->TransactionModel->getAllDataUnitB();
@@ -69,7 +71,7 @@ class HandOver extends CI_Controller {
         $data['user'] = $this->db->get_where('tb_users', ['email' =>
         $this->session->userdata('email')])->row_array();
         if ($data['user'] != null){
-        
+        $data['title'] = "Halaman serah terima";
         $nounit = $this->cekNameUnit($idTransaction);    
         $data ['transaction'] = $this->TransactionModel->getDataTransaction($idTransaction);  
         $data ['fileupload'] = $this->TransactionModel->getDataFileUpload($nounit);

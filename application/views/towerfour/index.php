@@ -6,6 +6,10 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1><?php echo $title;?></h1>
+            <?php if ($towerfour == null){ ?>
+                <a class="btn btn-primary" href="<?php echo base_url('syncroniseData/insertDataTowerD');?>" role="button">Insert Data</a>
+                </button>
+            <?php } ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -40,6 +44,7 @@
                     <th>Tgl. Transaksi</th>
                     <th>Tgl. Undangan</th>
                     <th>Grace periode</th>
+                    <th>Status Pembayaran</th>
                     <th colspan="1">Action</th>
                   </tr>
                   </thead>
@@ -55,8 +60,9 @@
                     <td><?php echo $row['tgl_transaksi']; ?>  </td>
                     <td><?php echo $row['tgl_ho_seharusnya']; ?>  </td>
                     <td><?php echo $row['grace_periode']; ?>  </td>
+                    <td><?php echo $row['name_status_pembayaran']; ?></td>
                     <td><button type="button" rel="tooltip" title="Edit <?php echo $row['lantai']; ?>" class="btn btn-info btn-simple btn-xs" >
-                    <a href="<?php echo base_url('TowerTwo/updateTowerTwo/'.$row['id_std']);?>"><i class="fa fa-edit"></i></a>
+                    <a href="<?php echo base_url('TowerFour/updateTowerFour/'.$row['id_std']);?>"><i class="fa fa-edit"></i></a>
                     </button>
                     <button type="button" rel="tooltip" title="Remove" data-toggle="modal" data-target="#modalDelete<?php echo $row['id_std'];?>" class="btn btn-danger btn-simple btn-xs">
                     <i class="fa fa-times" onClick="return confirmDel();"></i>
@@ -80,7 +86,7 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                          <button type="button" class="btn btn-danger"><a href="<?php echo base_url('TowerTwo/deleteTowerTwo/'.$row['id_std']);?>">Delete</a></button>
+                          <button type="button" class="btn btn-danger"><a href="<?php echo base_url('TowerFour/deleteTowerFour/'.$row['id_std']);?>">Delete</a></button>
                         </div>
                       </div>
                     </div>
