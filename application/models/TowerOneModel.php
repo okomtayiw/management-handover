@@ -8,7 +8,7 @@ Class TowerOneModel extends CI_Model{
     $this->load->database();
   }
 
-  public function getAllDataTowerOneUpdate($idTowerOne){
+  public function getDataTowerOneUpdate($idTowerOne){
   
     $query = $this->db->query("SELECT * FROM tbl_cta WHERE id_cta ='$idTowerOne'");
     return $query->result_array();
@@ -101,6 +101,19 @@ Class TowerOneModel extends CI_Model{
     );
 
     $this->db->insert('tbl_cta', $data);
+  }
+
+  public function updateDataTowerOne($unit, $owner, $dateTransaction, $idTowerOne){
+
+    $data = array(
+      'tgl_transaksi' => $dateTransaction,
+      'pemilik'  => $owner,
+      'lantai'  => $unit
+    );
+
+    $this->db->where('id_cta', $idTowerOne);
+    $this->db->update('tbl_cta', $data);
+
   }
 
 }

@@ -141,7 +141,6 @@ foreach($towerone as $rows ) :
             <!-- /.card-body -->
           </div> 
         </div>
-      </div>
  </section>
  </div>
 

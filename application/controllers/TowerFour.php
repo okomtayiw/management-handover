@@ -5,8 +5,11 @@ class TowerFour extends CI_Controller {
     public function __construct()
     {
         parent:: __construct();
-        $this->load->model('TowerFourModel');  
-        $this->load->model('TowerOneModel');  
+        $models = array(
+            'AlltowerModel' => 'AlltowerModel',
+            'TowerFourModel' => 'TowerFourModel'
+        );
+        $this->load->model($models);   
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->helper('array');
@@ -44,15 +47,79 @@ class TowerFour extends CI_Controller {
             }
         
     
-       }
+    }
 
 
+    public function saveUpdateTowerFour(){
+        $unit = $this->input->post('nmUnit');
+        $owner = $this->input->post('nmOwner');
+        $dateTransaction = $this->input->post('dateTransaksi');
 
-       
+        $idTowerFour = $this->input->post('idTowerFour');
+        
+        $this->TowerFourModel->updateDataTowerFour($unit, $owner, $dateTransaction, $idTowerFour);
+        $this->session->set_flashdata('messageupdate','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>'.$unit.'</strong> Update data berhasil 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+        redirect('towerFour');
+    }
 
 
-
+    public function updateTowerFour($idTowerFour){
      
+        $data['user'] = $this->db->get_where('tb_users', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        if ($data['user'] != null){
+            if (isset($_SERVER['HTTP_REFERER'])) {
+                $referer = $_SERVER['HTTP_REFERER'];
+             } else {
+                $referer = '';
+             }
+        $data['back'] = $referer;   
+        $data ['title'] = 'Halaman Data Tower D';
+        $data ['towerfour'] = $this->TowerFourModel->getDataTowerFourUpdate($idTowerFour);
+        $data ['identitas'] = $this->TowerFourModel->gatDataIdentitasAddress($idTowerFour); 
+        $this->load->view('templates/header', $data);
+        $this->load->view('towerfour/vupdatetowerfour', $data);
+        $this->load->view('templates/footer');
+        } else {
 
+        $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
+        Please register to login</div>');
+
+        redirect('auth');
+        }
+    }
+
+
+    public function saveUpdateAddress(){
+
+        $nmAddress = $this->input->post('nmAddress');
+        $noTelp = $this->input->post('noTelp');
+        $nmUnit = $this->input->post('nmUnit');
+        $idAddress = $this->input->post('idAddress');
+
+
+        
+        $this->AlltowerModel->saveUpdateDataAddress($nmAddress,$noTelp,$nmUnit, $idAddress);
+
+    }
+
+    public function saveAddAddress(){
+
+        $nmAddress = $this->input->post('nmAddress');
+        $noTelp = $this->input->post('noTelp');
+        $nmUnit = $this->input->post('nmUnit');
+       
+        $this->AlltowerModel->saveAddDataAddress($nmAddress,$noTelp,$nmUnit);
+
+    }
+    public function deleteAddress(){
+         $idAddres = $this->input->post('id');
+         $this->AlltowerModel->deleteDataAddress($idAddres);
+    }  
 
 }

@@ -91,4 +91,18 @@ Class TowerTreeModel extends CI_Model{
     $this->db->insert('tbl_stc', $data);
   } 
 
+
+  public function updateDataTowerTree($unit, $owner, $dateTransaction, $idTowerTree){
+
+    $data = array(
+      'tgl_transaksi' => $dateTransaction,
+      'pemilik'  => $owner,
+      'lantai'  => $unit
+    );
+
+    $this->db->where('id_stc', $idTowerTree);
+    $this->db->update('tbl_stc', $data);
+
+  }
+
 }

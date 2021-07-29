@@ -70,6 +70,25 @@ class TowerTwo extends CI_Controller {
     }
 
 
+    public function saveUpdateTowerTwo(){
+
+        $unit = $this->input->post('nmUnit');
+        $owner = $this->input->post('nmOwner');
+        $dateTransaction = $this->input->post('dateTransaksi');
+
+        $idTowerTwo = $this->input->post('idTowerTwo');
+        
+        $this->TowerTwoModel->updateDataTowerTwo($unit, $owner, $dateTransaction, $idTowerTwo);
+        $this->session->set_flashdata('messageupdate','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>'.$unit.'</strong> Update data berhasil 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>');
+        redirect('towertwo');
+    }
+
+
     public function saveUpdateAddress(){
 
         $nmAddress = $this->input->post('nmAddress');

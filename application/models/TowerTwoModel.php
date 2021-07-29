@@ -96,4 +96,16 @@ Class TowerTwoModel extends CI_Model{
     $this->db->insert('tbl_ctb', $data);
   }
 
+
+  public function updateDataTowerTwo($unit, $owner, $dateTransaction, $idTowerTwo){
+    $data = array(
+      'tgl_transaksi' => $dateTransaction,
+      'pemilik'  => $owner,
+      'lantai'  => $unit
+    );
+
+    $this->db->where('id_ctb', $idTowerTwo);
+    $this->db->update('tbl_ctb', $data);
+  }
+
 }

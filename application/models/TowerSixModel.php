@@ -10,19 +10,10 @@ Class TowerSixModel extends CI_Model{
 
 
 
-  public function getAllDataTowerSix(){
   
-    $query = $this->db->query("SELECT tbl_stf.*,status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_stf
-    LEFT OUTER JOIN status ON tbl_stf.status = status.id_status 
-    LEFT OUTER JOIN tbl_status_unit  ON tbl_stf.id_status_unit = tbl_status_unit.id_status_unit 
-    ORDER BY tbl_stf.id_stf ASC");
-    return $query->result_array();
-
-  }
 
 
-
-  public function getAllDataTowerSixUpdate($idTowerStf){
+  public function getDataTowerSixUpdate($idTowerStf){
   
     $query = $this->db->query("SELECT * FROM tbl_stf WHERE id_stf ='$idTowerStf'");
     return $query->result_array();
@@ -30,15 +21,21 @@ Class TowerSixModel extends CI_Model{
   }
 
 
-  
 
-    function deleteAllTowerSix($id){
+  public function gatDataIdentitasAddress($idTowerSix){
+    $nounit = $this->cekNameUnit($idTowerSix);    
+    $query = $this->db->query("SELECT * FROM tbl_address WHERE nm_unit ='$nounit' ORDER BY id_address DESC");
+    return $query->result_array();
+  }
 
-      $this->db->where_in('id_stf', $id);
-      $this->db->delete('tbl_stf');
 
-      echo $id;
-    }
+  private function cekNameUnit($id){
+    $query = $this->db->query("SELECT lantai as nounit FROM tbl_stf WHERE id_stf = '$id'");
+    $numberunit = $query->row();
+    return $numberunit->nounit;
+   }
+
+
 
 
 
@@ -107,7 +104,20 @@ Class TowerSixModel extends CI_Model{
       );
   
       $this->db->insert('tbl_stf', $data);
-    }   
+    }
+    
+    public function updateDataTowerSix($unit, $owner, $dateTransaction, $idTowerSix){
+
+      $data = array(
+        'tgl_transaksi' => $dateTransaction,
+        'pemilik'  => $owner,
+        'lantai'  => $unit
+      );
+  
+      $this->db->where('id_stf', $idTowerSix);
+      $this->db->update('tbl_stf', $data);
+  
+    } 
 
    
 

@@ -9,20 +9,7 @@ Class TowerFiveModel extends CI_Model{
   }
 
 
-
-  public function getAllDataTowerFive(){
-  
-    $query = $this->db->query("SELECT tbl_ste.*,status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_ste
-    LEFT OUTER JOIN status ON tbl_ste.status = status.id_status 
-    LEFT OUTER JOIN tbl_status_unit  ON tbl_ste.id_status_unit = tbl_status_unit.id_status_unit 
-    ORDER BY tbl_ste.id_ste ASC");
-    return $query->result_array();
-
-  }
-
-
-
-  public function getAllDataTowerFiveUpdate($idTowerSte){
+  public function getDataTowerFiveUpdate($idTowerSte){
   
     $query = $this->db->query("SELECT * FROM tbl_ste WHERE id_ste ='$idTowerSte'");
     return $query->result_array();
@@ -30,42 +17,21 @@ Class TowerFiveModel extends CI_Model{
   }
 
 
-  public function getAllDataStatus(){
-  
-    $query = $this->db->query('SELECT * FROM  status ORDER BY id_status  ASC');
+  public function gatDataIdentitasAddress($idTowerFive){
+    $nounit = $this->cekNameUnit($idTowerFive);    
+    $query = $this->db->query("SELECT * FROM tbl_address WHERE nm_unit ='$nounit' ORDER BY id_address DESC");
     return $query->result_array();
-
-  }
-
-  public function getAllDataDefectStatus(){
-  
-    $query = $this->db->query('SELECT * FROM tbl_defect ORDER BY id_defect ASC');
-    return $query->result_array();
-
   }
 
 
-
-  public function getAllDataStatusPayment(){
-  
-    $query = $this->db->query('SELECT * FROM tbl_status_unit ORDER BY id_status_unit ASC');
-    return $query->result_array();
-
-  }
+  private function cekNameUnit($id){
+    $query = $this->db->query("SELECT lantai as nounit FROM tbl_ste WHERE id_ste = '$id'");
+    $numberunit = $query->row();
+    return $numberunit->nounit;
+   }
 
 
-    function totDataTowere(){
-      return $this->db->count_all("tbl_ste");
-    }
-
-
-    function deleteAllTowerFive($id){
-
-      $this->db->where_in('id_ste', $id);
-      $this->db->delete('tbl_ste');
-
-      echo $id;
-    }
+ 
 
 
 
@@ -138,6 +104,17 @@ Class TowerFiveModel extends CI_Model{
       $this->db->insert('tbl_ste', $data);
     }   
 
+    public function updateDataTowerFive($unit, $owner, $dateTransaction, $idTowerFive){
 
+      $data = array(
+        'tgl_transaksi' => $dateTransaction,
+        'pemilik'  => $owner,
+        'lantai'  => $unit
+      );
+  
+      $this->db->where('id_ste', $idTowerFive);
+      $this->db->update('tbl_ste', $data);
+  
+    } 
 
 }

@@ -141,7 +141,6 @@ foreach($towertree as $rows ) :
             <!-- /.card-body -->
           </div> 
         </div>
-      </div>
  </section>
  </div>
 

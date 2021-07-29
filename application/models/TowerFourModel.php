@@ -10,47 +10,37 @@ Class TowerFourModel extends CI_Model{
 
 
 
-  public function getAllDataTowerFour(){
-  
-    $query = $this->db->query("SELECT tbl_std.*,status.status as nameStatus,tbl_status_unit.nama_status_unit as statusUnit FROM tbl_std
-    LEFT OUTER JOIN status ON tbl_std.status = status.id_status 
-    LEFT OUTER JOIN tbl_status_unit  ON tbl_std.id_status_unit = tbl_status_unit.id_status_unit 
-    WHERE tbl_std.ready_ho = 'Sudah siap serah terima'
-    ORDER BY tbl_std.id_std ASC");
-    return $query->result_array();
-
-  }
-
-
-
-  public function getAllDataTowerFourUpdate($idTowerFour){
+  public function getDataTowerFourUpdate($idTowerFour){
   
     $query = $this->db->query("SELECT * FROM tbl_std WHERE id_std ='$idTowerFour'");
     return $query->result_array();
 
   }
 
-    public function deleteAllTowerFour($id){
-
-      $this->db->where_in('id_std', $id);
-      $this->db->delete('tbl_std');
-
-      echo $id;
-    }
+  public function gatDataIdentitasAddress($idTowerFour){
+    $nounit = $this->cekNameUnit($idTowerFour);    
+    $query = $this->db->query("SELECT * FROM tbl_address WHERE nm_unit ='$nounit' ORDER BY id_address DESC");
+    return $query->result_array();
+  }
 
 
+  private function cekNameUnit($id){
+    $query = $this->db->query("SELECT lantai as nounit FROM tbl_std WHERE id_std = '$id'");
+    $numberunit = $query->row();
+    return $numberunit->nounit;
+   }
 
-    public function get_current_page_records_twd(){
+  public function get_current_page_records_twd(){
        
-      $query = $this->db->query("SELECT tbl_std.*,tbl_std.penerimaan as name_status_pembayaran FROM tbl_std ORDER BY tbl_std.id_std");
-      return $query->result_array();
-    }
+    $query = $this->db->query("SELECT tbl_std.*,tbl_std.penerimaan as name_status_pembayaran FROM tbl_std ORDER BY tbl_std.id_std");
+    return $query->result_array();
+  }
   
-    public function syncroniseData() {
+  public function syncroniseData() {
   
-      $query = $this->db->query("SELECT * FROM master_data_denda WHERE substring(master_data_denda.unit, 1,3) = 'TRD' AND penerimaan = '100%'");
-      return $query->result_array(); 
-    } 
+    $query = $this->db->query("SELECT * FROM master_data_denda WHERE substring(master_data_denda.unit, 1,3) = 'TRD' AND penerimaan = '100%'");
+    return $query->result_array(); 
+  } 
   
   
     public function updateSyncroniseTowerD($nameUnit,$penerimaan){
@@ -102,5 +92,18 @@ Class TowerFourModel extends CI_Model{
   
   
       $this->db->insert('tbl_std', $data);
-    }   
+    } 
+    
+    public function updateDataTowerFour($unit, $owner, $dateTransaction, $idTowerFour){
+
+      $data = array(
+        'tgl_transaksi' => $dateTransaction,
+        'pemilik'  => $owner,
+        'lantai'  => $unit
+      );
+  
+      $this->db->where('id_std', $idTowerFour);
+      $this->db->update('tbl_std', $data);
+  
+    } 
 }

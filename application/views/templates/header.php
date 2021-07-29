@@ -107,7 +107,7 @@
           <img src="<?= base_url();?>/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Wiyatmoko</a>
+          <a href="#" class="d-block"><?php echo $this->session->userdata('email'); ?></a>
         </div>
       </div>
 
