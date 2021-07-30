@@ -6,8 +6,11 @@ class Home extends CI_Controller {
 	{
 	
 		parent:: __construct();	
-		$this->load->model('HomeModel');  
-		$this->load->model('AlltowerModel');   
+		$models = array(
+            'HomeModel' => 'HomeModel',
+            'AlltowerModel' => 'AlltowerModel'
+         );
+        $this->load->model($models);  
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->helper('array');
@@ -29,6 +32,10 @@ class Home extends CI_Controller {
 		$data['totGracePeriodeD'] = $this->AlltowerModel->totGracePeriodeD();
 		$data['totGracePeriodeE'] = $this->AlltowerModel->totGracePeriodeE();
 		$data['totGracePeriodeF'] = $this->AlltowerModel->totGracePeriodeF();
+		$data['totDataInProgress'] = $this->HomeModel->getDataInProgressTransaction();
+		$data['totDataHandOver'] = $this->HomeModel->getDataHoTransaction();
+		$data['totDataPending'] = $this->HomeModel->getDataPendingTransaction();
+		$data['totDataCancel'] = $this->HomeModel->getDataCancelTransaction();
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/index', $data);
 		$this->load->view('templates/footer');

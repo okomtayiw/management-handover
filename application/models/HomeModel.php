@@ -9,47 +9,38 @@ Class HomeModel extends CI_Model{
   }
 
 
-
-  public function getAllDataTowerOne(){
+  public function getDataInProgressTransaction(){
   
-    return $this->db->count_all("tbl_cta");
+    $query = $this->db->query("SELECT COUNT(id_transaction) as totData FROM tbl_transaction WHERE status = 'In Progress'");
+    return $query->result_array();  
 
   }
 
 
-  public function getAllDataTowerTwo(){
+  public function getDataHoTransaction(){
   
-    return $this->db->count_all("tbl_ctb");
+    $query = $this->db->query("SELECT COUNT(id_transaction) as totData FROM tbl_transaction WHERE status = 'HO'");
+    return $query->result_array();  
 
   }
 
-  public function getAllDataTowerTree(){
+
+  public function getDataPendingTransaction(){
   
-    return $this->db->count_all("tbl_stc");
+    $query = $this->db->query("SELECT COUNT(id_transaction) as totData FROM tbl_transaction WHERE status = 'Pending'");
+    return $query->result_array();  
 
   }
 
 
-  public function getAllDataTowerFour(){
+
+  public function getDataCancelTransaction(){
   
-    return $this->db->count_all("tbl_std");
+    $query = $this->db->query("SELECT COUNT(id_transaction) as totData FROM tbl_transaction WHERE status = 'Cancel'");
+    return $query->result_array();  
 
   }
 
-  public function getAllDataTowerFive(){
-    return $this->db->count_all("tbl_ste");
-
-  }
-  
-  public function getAllDataTowerSix(){
-    return $this->db->count_all("tbl_stf");
-  }
-
-  public function getAllDataTownhouse(){
-  
-    return $this->db->count_all("tbl_townhouse");
-
-  }
 
 
    
