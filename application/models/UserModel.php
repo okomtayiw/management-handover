@@ -18,11 +18,25 @@ Class UserModel extends CI_Model{
   }
 
 
-  public function getAllDataUserUpdate($idUser){
+  public function getDataUserUpdate($idUser){
   
     $query = $this->db->query("SELECT * FROM tb_users WHERE id_users = '$idUser'");
     return $query->result_array();
 
+  }
+
+
+  public function saveUpdateDataUser($username,$email,$status, $idUser){
+
+    $data = array(
+      'username' => $username,
+      'email' => $email,
+      'status' => $status
+    );
+
+
+    $this->db->where('id_users', $idUser);
+    $this->db->update('tb_users', $data);
   }
 
 
@@ -38,10 +52,10 @@ Class UserModel extends CI_Model{
 
 
 
-    public function get_current_page_records_users($limit, $start) 
+    public function get_current_page_records_users() 
     {
        
-        $query = $this->db->query("SELECT * FROM tb_users ORDER BY id_users DESC LIMIT $start, $limit");
+        $query = $this->db->query("SELECT * FROM tb_users ORDER BY id_users DESC");
         return $query->result_array();
   
   

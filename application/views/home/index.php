@@ -212,6 +212,7 @@ if($totGracePeriodeF != null){
                   <span class="mr-4">
                     <i class="fas fa-square text-secondary"></i> TR F
                   </span>
+                  
                 </div>
               </div>
             </div>

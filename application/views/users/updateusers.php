@@ -1,70 +1,64 @@
-
 <?php
-foreach($users as $rows ) : 
+foreach($dataUsers as $rows ) : 
 ?>
-<?= $this->session->flashdata('messageSuksesUpdateUser');?>
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-                <form id="form-insert" method="POST" autocomplete="off" role="form" action="<?php echo base_url('user/saveUpdateUser')?>">
-                
-                            <div class="form-group row">
-                                <label  class="col-sm-2 col-form-label"> Name Unit</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nama Unit" value="<?php echo $rows['username'];?>" name="nmUser">
-                                <small class="text-danger"><?php echo form_error('nmUser'); ?></small>  
-                            </div>
-                            </div>
-                            
-                            <div class="form-group row">
-                            <label  class="col-sm-2 col-form-label">E-mail</label>
-                            <div class="col-sm-10">
-                            <input type="email" class="form-control" placeholder="Email" name="nmEmail" value="<?php echo $rows['email'];?>">
-                            <small class="text-danger"><?php echo form_error('nmEmail'); ?></small> 
-                            </div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <label  class="col-sm-2 col-form-label">Status</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="nmStatusUser">
-                                <option value=''>--Pilih Status User--</option>
-                                <?php
-                                      foreach (Array('Active', 'No active') as $kondisi) { ?>
-                                       <option value="<?php echo $kondisi;?>"<?php if (!(strcmp($kondisi, $rows['status']))) {echo "selected=\"selected\"";} ?>><?php echo $kondisi?></option>
-                                <?php } ?>
-                                </select>
-                            </div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <label  class="col-sm-2 col-form-label">Level</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="nmLevel">
-                                <option value=''>--Pilih level User--</option>
-                                <?php
-                                      foreach (Array('Superadmin', 'Admin', 'User') as $level) { ?>
-                                       <option value="<?php echo $level;?>"<?php if (!(strcmp($level, $rows['role_id']))) {echo "selected=\"selected\"";} ?>><?php echo $level?></option>
-                                <?php } ?>
-                                </select>
-                            </div>
-                            </div>
-
-
-                        
-                            
-                    <div class="modal-footer">
-                        <input type="hidden" name="idUser" value="<?php echo $rows['id_users'];?>" />
-                        <a href="<?php echo $back;?>"><button type="button" class="btn btn-secondary" >Back</button></a>
-                        <button type="submit" class="btn btn-primary" id="btn-insert">Save</button>
-                    </div>
-                            
-                </form>
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+ <!-- Main content -->
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+    
         </div>
-    </div>
-</div>
-<?php
+      </div><!-- /.container-fluid -->
+  </section>
+  <section class="content">
+        <div class="container-fluid">
+        <div class="col-md-6">
+           <!-- jquery validation -->
+           <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Form <small>User</small></h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form id="quickForm" method="POST"  action="<?php echo base_url('user/saveupdateuser')?>">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label >Name</label>
+                    <input type="text" value="<?php echo $rows['username'];?>" name="username" class="form-control"  placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                    <label >E-mail</label>
+                    <input type="text"  name="email" value="<?php echo $rows['email'];?>" class="form-control"  placeholder="e]E-mail">
+                  </div>
+                  <div class="form-group">
+                    <label >Status</label>
+                    <select class="form-control" name="status" id="status">
+                        <option value=''>--Pilih Tower--</option>
+                        <?php
+                        foreach (Array('Active','Non Active') as $status) { ?>
+                        <option value="<?php echo $status;?>"<?php if (!(strcmp($status, $rows['status']))) {echo "selected=\"selected\"";} ?>><?php echo $status;?></option>
+                        <?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                <input type="hidden" name="idUsers" value="<?php echo $rows['id_users'];?>" />
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+        </div>
+        </div>
+    </section>
+ </div>
+ <?php
 endforeach;
 ?>
+
+<script>
+  
+</script>

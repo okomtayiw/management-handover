@@ -55,7 +55,7 @@ class Auth extends CI_Controller {
        
         if($user != null){
 
-            if ($user['is_active'] == 1 ) {
+            if ($user['is_active'] == 1 && $user['status'] == 'Active' ) {
 
                 if (password_verify($password, $user['password'])){
 

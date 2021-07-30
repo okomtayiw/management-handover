@@ -175,6 +175,12 @@
                 </a>
               </li>
             </ul>
+            <li class="nav-item">
+                <a href="<?= base_url('user');?>" class="nav-link">
+                  <i class="far fa-user nav-icon"></i>
+                  <p>Users</p>
+                </a>
+            </li>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
