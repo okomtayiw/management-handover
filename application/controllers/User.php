@@ -94,6 +94,8 @@ class User extends CI_Controller {
         <h4><i class="icon fa fa-check"></i> Alert!</h4>
         Success delete data users.
         </div>');   
+
+        redirect('user');
     }
 
 

@@ -63,6 +63,29 @@ foreach($transaction as $rows ) :
                   <?php } ?>
                 </select>
               </div>
+
+              <div class="form-group">
+                <label for="nmTotDefect">Jumlah Defect</label>
+                <select id="nmTotDefect" class="form-control custom-select">
+                  <option >Select Tot Defect</option>
+                  <?php
+                  foreach (range(0, 100) as $totDefect) { ?>
+                  <option value="<?php echo $totDefect;?>"<?php if (!(strcmp($totDefect, $rows['tot_defect']))) {echo "selected=\"selected\"";} ?>><?php echo $totDefect?></option>
+                  <?php } ?>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="nmStatusDefect">Status Defect</label>
+                <select id="nmStatusDefect" class="form-control custom-select">
+                  <option >Select Status Defect</option>
+                  <?php
+                  foreach (Array('On Progress', 'Progress', 'Done') as $statusTower) { ?>
+                  <option value="<?php echo $statusTower;?>"<?php if (!(strcmp($statusTower, $rows['status_defect']))) {echo "selected=\"selected\"";} ?>><?php echo $statusTower?></option>
+                  <?php } ?>
+                </select>
+              </div>
+
               <!-- kwh listrik -->
               <div class="form-group">
                 <label for="noKwhListrik">No. KWH Listrik</label>
@@ -238,6 +261,8 @@ foreach($transaction as $rows ) :
             var noIdentitas = $("#noIdentitas").val();
             var nmName = $("#nmName").val();
             var nmAddress = $("#nmAddress").val();
+            var nmTotDefect = $("#nmTotDefect").val();
+            var nmStatusDefect = $("#nmStatusDefect").val();
 
             // if(idTransDetail == ''){
             //     alert("Apakah anda yakin untuk menambahkan data");
@@ -260,7 +285,9 @@ foreach($transaction as $rows ) :
                 'startKwhAir' : startKwhAir,
                 'noIdentitas' : noIdentitas,
                 'nmName' : nmName,
-                'nmAddress' : nmAddress
+                'nmAddress' : nmAddress,
+                'nmTotDefect' : nmTotDefect,
+                'nmStatusDefect' : nmStatusDefect
                 },
                 success: function(data){
                     if (data == "success insert data"){

@@ -185,6 +185,8 @@ class HandOver extends CI_Controller {
         $startKwhListrik = $this->input->post('startKwhListrik');
         $noKwhAir  =  $this->input->post('noKwhAir');
         $startKwhAir = $this->input->post('startKwhAir');
+        $nmTotDefect = $this->input->post('nmTotDefect');
+        $nmStatusDefect = $this->input->post('nmStatusDefect');
 
         $data = array(
             'id_transaction' => $idTransaction,
@@ -192,7 +194,9 @@ class HandOver extends CI_Controller {
             'no_kwh_listrik' => $noKwhListrik,
             'start_kwh_listrik' => $startKwhListrik,
             'no_kwh_air' => $noKwhAir,
-            'start_kwh_air' => $startKwhAir
+            'start_kwh_air' => $startKwhAir,
+            'tot_defect' => $nmTotDefect,
+            'status_defect' => $nmStatusDefect
         );
 
 

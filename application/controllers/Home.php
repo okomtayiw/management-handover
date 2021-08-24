@@ -14,6 +14,9 @@ class Home extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->helper('array');
+		$this->load->helper('date');
+             
+		
 		
 		
 	}
@@ -36,8 +39,10 @@ class Home extends CI_Controller {
 		$data['totDataHandOver'] = $this->HomeModel->getDataHoTransaction();
 		$data['totDataPending'] = $this->HomeModel->getDataPendingTransaction();
 		$data['totDataCancel'] = $this->HomeModel->getDataCancelTransaction();
+		
+		
 		$this->load->view('templates/header', $data);
-		$this->load->view('home/index', $data);
+		$this->load->view('home/index', $data);    
 		$this->load->view('templates/footer');
 
 	

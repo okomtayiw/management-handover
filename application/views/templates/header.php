@@ -57,9 +57,9 @@
           <i class="fas fa-search"></i>
         </a>
         <div class="navbar-search-block">
-          <form class="form-inline">
+          <form class="form-inline" action="<?= base_url('Search');?>" method="POST">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar" type="search" name='query' placeholder="Search" aria-label="Search">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
@@ -112,7 +112,7 @@
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      <!-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -121,7 +121,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -181,6 +181,12 @@
                   <p>Users</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="<?= base_url('ListEmail');?>" class="nav-link">
+                  <i class="far fa-envelope nav-icon"></i>
+                  <p>List Email</p>
+                </a>
+            </li>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -214,12 +220,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?= base_url('ListAllData');?>" class="nav-link">
                   <i class="far fa-file nav-icon"></i>
                   <p>All Data Unit</p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="<?= base_url('SitePlan');?>" class="nav-link">
                   <i class="far fa-file nav-icon"></i>
@@ -242,4 +248,18 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+
+  <script>
+    $(document).ready(function(){
+     
+        // save handover
+        $(".btn-save-handover").click(function(){
+
+         
+         
+        });
+
+      
+    });
+  </script>
 

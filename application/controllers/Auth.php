@@ -31,16 +31,16 @@ class Auth extends CI_Controller {
 
                 if( $this->form_validation->run() == false){
 
-                    $data['judul'] = 'Login';
+                    $data['title'] = 'Login';
                     $this->load->view('auth/header', $data);
                     $this->load->view('auth/login', $data);
                     $this->load->view('auth/footer');
                     
                 }else {
 
-                $this->_login();
+                $this-> _login();
 
-                }
+            }
         }
         
     }
@@ -55,7 +55,7 @@ class Auth extends CI_Controller {
        
         if($user != null){
 
-            if ($user['is_active'] == 1 && $user['status'] == 'Active' ) {
+            if ($user['is_active'] == 1 &&  $user['status'] == 'Active' ) {
 
                 if (password_verify($password, $user['password'])){
 
@@ -67,33 +67,31 @@ class Auth extends CI_Controller {
                     $this->session->set_userdata($data);
 
                     redirect ('home');
+                  
 
-                }else {
+                } else {
                     $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
-                    Wrong Password!</div>');
-
+                    Password Salah </div>');
                     redirect('auth');
-
                 }
 
+            } else {
+                $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
+                Akun anda belum aktif silahkan hubungi admin</div>');
+                redirect('auth');
             }
 
-     
              
-         } else {
- 
-             $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
-             Email is not registered!</div>');
- 
-             redirect('auth');
- 
-         
-        }
+        } else {
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
+            Email belum terdaftar silahkan buat akun</div>');
+            redirect('auth');
+        } 
 
-    }
+    } 
 
     
-    public function registration($nama='')
+    public function registration()
     {
 
         $this->form_validation->set_rules('name','Name','required|trim');
@@ -106,7 +104,7 @@ class Auth extends CI_Controller {
         if( $this->form_validation->run() == false) {
 
             
-            $data['judul'] = 'Register';
+            $data['title'] = 'Register';
             $this->load->view('auth/header', $data);
             $this->load->view('auth/registration');
             $this->load->view('auth/footer');
@@ -139,10 +137,6 @@ class Auth extends CI_Controller {
         $this->load->view('auth/header', $data);
         $this->load->view('auth/forgotPassword', $data);
         $this->load->view('auth/footer');
-
-
-
-
 
 
     }
