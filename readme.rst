@@ -26,3 +26,4 @@ Management data serah terima unit apartement
   - HO (Handover)
   - Pinjam Pakai (if status unit belum lunas 100%)
 - Report 
+- Auto Send Email IF status defect belum dikerjakan dalam 
