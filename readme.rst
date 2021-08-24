@@ -1,6 +1,19 @@
 ###################
 Management data serah terima unit apartement
 ###################
+Language 
+- PHP Native
+- Framework Codeigniter 3
+- JQuery
+- Html
+- Css
+- Ajax
+
+
+
+###################
+Management data serah terima unit apartement
+###################
 
 - Masterdata
    - TOWER A
