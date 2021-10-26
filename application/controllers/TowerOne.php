@@ -29,6 +29,7 @@ class TowerOne extends CI_Controller {
            
             $data ['title'] = 'Tower A';
             $data ['towerone'] = $this->TowerOneModel->get_current_page_records_twa();    
+            $data['menutower'] = $this->AlltowerModel->dataMenuTower();
            
         
     

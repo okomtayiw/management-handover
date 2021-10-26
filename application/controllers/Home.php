@@ -39,6 +39,7 @@ class Home extends CI_Controller {
 		$data['totDataHandOver'] = $this->HomeModel->getDataHoTransaction();
 		$data['totDataPending'] = $this->HomeModel->getDataPendingTransaction();
 		$data['totDataCancel'] = $this->HomeModel->getDataCancelTransaction();
+		$data['menutower'] = $this->AlltowerModel->dataMenuTower();
 		
 		
 		$this->load->view('templates/header', $data);

@@ -11,7 +11,8 @@ class ListEmail extends CI_Controller {
 		parent:: __construct();	
 		$models = array(
             'UserModel' => 'UserModel',
-            'SendEmailModel' => 'SendEmailModel'
+            'SendEmailModel' => 'SendEmailModel',
+            'AlltowerModel' => 'AlltowerModel'
          );
         $this->load->model($models);  
         $this->load->helper('url');
@@ -30,6 +31,7 @@ class ListEmail extends CI_Controller {
 		if ($data['user'] != null){
 		$data['title'] = 'Halaman Data Email';
 		$data['dataEmail'] = $this->SendEmailModel->getAllDataEmail();
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
 	
 		$this->load->view('templates/header', $data);
 		$this->load->view('listemail/index', $data);

@@ -27,6 +27,7 @@ class TowerTwo extends CI_Controller {
            
             $data ['title'] = 'Tower B';
             $data ['towertwo'] = $this->TowerTwoModel->get_current_page_records_twb();
+            $data['menutower'] = $this->AlltowerModel->dataMenuTower();
         
 
     

@@ -10,8 +10,9 @@ class User extends CI_Controller {
 	
 		parent:: __construct();	
 		$models = array(
-            'UserModel' => 'UserModel'
-         );
+            'UserModel' => 'UserModel',
+            'AlltowerModel' => 'AlltowerModel'
+        );
         $this->load->model($models);  
         $this->load->helper('url');
         $this->load->helper('form');
@@ -29,6 +30,8 @@ class User extends CI_Controller {
 		if ($data['user'] != null){
 		$data['title'] = 'Halaman User';
 		$data['dataUsers'] = $this->UserModel->getAllDataUser();
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
+     
 	
 		$this->load->view('templates/header', $data);
 		$this->load->view('users/index', $data);

@@ -138,47 +138,26 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('towerOne');?>" class="nav-link">
-                  <i class="far fa-building nav-icon"></i>
-                  <p>Tower A</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('towerTwo');?>" class="nav-link">
-                  <i class="far fa-building nav-icon"></i>
-                  <p>Tower B</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('towerTree');?>" class="nav-link">
-                  <i class="far fa-building nav-icon"></i>
-                  <p>Tower C</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('towerFour');?>" class="nav-link">
-                  <i class="far fa-building nav-icon"></i>
-                  <p>Tower D</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('towerFive');?>" class="nav-link">
-                  <i class="far fa-building nav-icon"></i>
-                  <p>Tower E</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('towerSix');?>" class="nav-link">
-                  <i class="far fa-building nav-icon"></i>
-                  <p>Tower F</p>
-                </a>
-              </li>
+              <?php 
+              foreach ($menutower as $row) :?> 
+                <li class="nav-item">
+                  <a href="<?= base_url(''.$row['code_tower'].'');?>" class="nav-link">
+                    <i class="far fa-building nav-icon"></i>
+                    <p><?php echo $row['name_tower'];?></p>
+                  </a>
+                </li>
+              <?php endforeach; ?>
             </ul>
             <li class="nav-item">
                 <a href="<?= base_url('user');?>" class="nav-link">
                   <i class="far fa-user nav-icon"></i>
                   <p>Users</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?= base_url('MenuTower');?>" class="nav-link">
+                  <i class="far fa-building nav-icon"></i>
+                  <p>Data Tower</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -230,6 +209,12 @@
                 <a href="<?= base_url('SitePlan');?>" class="nav-link">
                   <i class="far fa-file nav-icon"></i>
                   <p>Site Plan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= base_url('ReportTransaksi');?>" class="nav-link">
+                  <i class="far fa-file nav-icon"></i>
+                  <p>Report Transaksi</p>
                 </a>
               </li>
             </ul>

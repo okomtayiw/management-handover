@@ -24,6 +24,7 @@ class ExportExcel extends CI_Controller {
     $tower = 'TRB';
     $level = 20;
     $dataUnit = $this->SitePlanModel->getUnitLevel20($tower);  
+    $data['menutower'] = $this->AlltowerModel->dataMenuTower();
 
     $count100 = $this->SitePlanModel->get100($tower,$level); 
     $count7090 = $this->SitePlanModel->get70_90($tower,$level); 

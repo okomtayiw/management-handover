@@ -5,7 +5,11 @@ class HandOver extends CI_Controller {
     public function __construct()
     {
         parent:: __construct();
-        $this->load->model('TransactionModel');  
+        $models = array(
+            'AlltowerModel' => 'AlltowerModel',
+            'TransactionModel' => 'TransactionModel'
+          );
+        $this->load->model($models);  
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->helper('array');
@@ -24,6 +28,7 @@ class HandOver extends CI_Controller {
         if ($data['user'] != null){
         $data ['transaction'] = $this->TransactionModel->getAllDataTransaction();  
         $data['title'] = "Halaman serah terima";
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
         $this->load->view('templates/header', $data);
         $this->load->view('HandOver/index', $data);
         $this->load->view('templates/footer');
@@ -52,6 +57,7 @@ class HandOver extends CI_Controller {
         $data ['towerd'] = $this->TransactionModel->getAllDataUnitD();
         $data ['towere'] = $this->TransactionModel->getAllDataUnitE();
         $data ['towerf'] = $this->TransactionModel->getAllDataUnitF();
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
         $this->load->view('templates/header', $data);
         $this->load->view('HandOver/vupdatehandover', $data);
         $this->load->view('templates/footer');

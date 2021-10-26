@@ -73,7 +73,7 @@ Class TowerTwoModel extends CI_Model{
    }
    
   public function dataTowerB(){
-    $query = $this->db->query("SELECT * FROM temp_data WHERE SUBSTRING(`nameUnit`,1,3) = 'TRB'");
+    $query = $this->db->query("SELECT * FROM temp_data WHERE SUBSTRING(`name_unit`,1,3) = 'TRB'");
     return $query->result_array();
   } 
 

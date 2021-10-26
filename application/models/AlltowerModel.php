@@ -17,6 +17,11 @@ Class AlltowerModel extends CI_Model{
     $this->load->model($models);
   }
 
+  public function dataMenuTower(){
+    $query = $this->db->query("SELECT * FROM menu_tower ORDER BY id_tower ASC");
+    return $query->result_array();
+  }
+
   /* address all tower view --> */
   public function saveUpdateDataAddress($nmAddress,$noTelp,$nmUnit, $idAddres){
 

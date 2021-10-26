@@ -13,7 +13,7 @@
                  $start =1;
                  foreach($printunit as  $row ) :    ?>
                             
-                            <p><?php echo $start++;?>. <?php echo $row['nameUnit'];?> berhasil ditambahkan</p>
+                            <p><?php echo $start++;?>. <?php echo $row['name_unit'];?> berhasil ditambahkan</p>
 
                <?php  
                  endforeach;

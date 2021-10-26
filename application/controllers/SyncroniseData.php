@@ -48,6 +48,7 @@ class SyncroniseData extends CI_Controller {
 		$this->session->userdata('email')])->row_array();
 		if ($data['user'] != null){
 		$data['title'] = 'Halaman Home';
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
 
         $dataUnit  = $this->TowerOneModel->dataTowerA();
         
@@ -55,12 +56,12 @@ class SyncroniseData extends CI_Controller {
            
         foreach($dataUnit as $row) {
 
-            $unit = $row['nameUnit'];
-            $pemilik = $row['nameOwner'];
-            $datetransakasi = $row['dateTransaksi'];
-            $dateserahterima = $row['dateHoSeharusnya'];
-            $gracePeriode = $row['gracePeriode'];
-            $penerimaan = $row['penerimaan'];
+            $unit = $row['name_unit'];
+            $pemilik = $row['name_owner'];
+            $datetransakasi = $row['date_transaction'];
+            $dateserahterima = $row['date_hand_over'];
+            $gracePeriode = $row['date_grace_periode'];
+            $penerimaan = $row['payment'];
             $denda = $row['denda'];
             $tunggakan = $row['tunggakan'];
             $date1 = str_replace('/', '-', $datetransakasi);
@@ -119,6 +120,7 @@ class SyncroniseData extends CI_Controller {
 		$this->session->userdata('email')])->row_array();
 		if ($data['user'] != null){
 		$data['title'] = 'Halaman Home';
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
 
         $dataUnit  = $this->TowerTwoModel->dataTowerB();
         
@@ -126,12 +128,12 @@ class SyncroniseData extends CI_Controller {
            
         foreach($dataUnit as $row) {
 
-            $unit = $row['nameUnit'];
-            $pemilik = $row['nameOwner'];
-            $datetransakasi = $row['dateTransaksi'];
-            $dateserahterima = $row['dateHoSeharusnya'];
-            $gracePeriode = $row['gracePeriode'];
-            $penerimaan = $row['penerimaan'];
+            $unit = $row['name_unit'];
+            $pemilik = $row['name_owner'];
+            $datetransakasi = $row['date_transaction'];
+            $dateserahterima = $row['date_hand_over'];
+            $gracePeriode = $row['date_grace_periode'];
+            $penerimaan = $row['payment'];
             $denda = $row['denda'];
             $tunggakan = $row['tunggakan'];
             $date1 = str_replace('/', '-', $datetransakasi);
@@ -190,6 +192,7 @@ class SyncroniseData extends CI_Controller {
 		$this->session->userdata('email')])->row_array();
 		if ($data['user'] != null){
 		$data['title'] = 'Halaman Home';
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
 
         $dataUnit  = $this->TowerTreeModel->dataTowerC();
         
@@ -327,6 +330,7 @@ class SyncroniseData extends CI_Controller {
         $this->session->userdata('email')])->row_array();
         if ($data['user'] != null){
         $data['title'] = 'Halaman Home';
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
 
         $dataUnit  = $this->TowerFiveModel->dataTowerE();
         
@@ -398,6 +402,7 @@ class SyncroniseData extends CI_Controller {
         $this->session->userdata('email')])->row_array();
         if ($data['user'] != null){
         $data['title'] = 'Halaman Home';
+        $data['menutower'] = $this->AlltowerModel->dataMenuTower();
 
         $dataUnit  = $this->TowerSixModel->dataTowerF();
         

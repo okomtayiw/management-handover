@@ -39,12 +39,11 @@ Class TowerOneModel extends CI_Model{
 
 
 
-  public function get_current_page_records_twa() 
-    {
+  public function get_current_page_records_twa() {
        
         $query = $this->db->query("SELECT tbl_cta.*,tbl_cta.penerimaan as name_status_pembayaran FROM tbl_cta ORDER BY tbl_cta.id_cta");
         return $query->result_array();  
-    }
+  }
 
   public function syncroniseData() {
 
@@ -81,7 +80,7 @@ Class TowerOneModel extends CI_Model{
    }
 
   public function dataTowerA(){
-    $query = $this->db->query("SELECT * FROM temp_data WHERE SUBSTRING(`nameUnit`,1,3) = 'TRA'");
+    $query = $this->db->query("SELECT * FROM temp_data WHERE SUBSTRING(`name_unit`,1,3) = 'TRA'");
     return $query->result_array();
   } 
 
